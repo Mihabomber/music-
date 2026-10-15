@@ -187,7 +187,7 @@
             <!-- Переключатель режимов и кнопка загрузки треков -->
             <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
                 <div class="bg-white/5 p-1 rounded-xl border border-white/10 flex items-center">
-                    <button onclick="switchView('grid')" id="tab-grid" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow[...]
+                    <button onclick="switchView('grid')" id="tab-grid" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow">
                         <i class="fa-solid fa-grip mr-1.5"></i>Карточки
                     </button>
                     <button onclick="switchView('spotlight')" id="tab-spotlight" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white">
@@ -198,7 +198,7 @@
                     </button>
                 </div>
 
-                <button onclick="openMp3Manager()" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 text-cya[...]
+                <button onclick="openMp3Manager()" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 text-cyan-300 border border-cyan-400/30 transition-all flex items-center gap-2 shadow-lg shadow-cyan-500/10">
                     <i class="fa-solid fa-file-audio text-cyan-400"></i>
                     <span>Свои MP3 / Фото</span>
                 </button>
@@ -222,24 +222,24 @@
                         МОЙ МУЗЫКАЛЬНЫЙ <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-400">ДНК-ПЛЕЙЛИСТ</span>
                     </h1>
                     <p class="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Пять абсолютно разных вселенных — от канадского хаус-рэпа и зумерской меланхолии до нидерландс[...]
+                        Пять абсолютно разных вселенных — от канадского хаус-рэпа и зумерской меланхолии до нидерландского рейва и громкого шоу-бизнеса. У каждого артиста сверху расположено <span class="text-white font-semibold underline decoration-pink-500">его лицо и снизу псевдоним</span>, подробная история самого исполнителя и блок с моим любимым треком.
                     </p>
                 </div>
 
                 <!-- Быстрые кнопки запуска -->
                 <div class="flex flex-wrap sm:flex-nowrap lg:flex-col gap-3 shrink-0">
-                    <button onclick="playTrack(0)" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-display font-bold text-xs sm:text-sm bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500[...]
+                    <button onclick="playTrack(0)" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-display font-bold text-xs sm:text-sm bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 hover:opacity-95 text-white shadow-xl shadow-pink-500/25 flex items-center justify-center gap-3 transition-transform active:scale-95">
                         <i class="fa-solid fa-play text-base"></i>
                         <span>ВКЛЮЧИТЬ ВСЕ 5 ТРЕКОВ ПОДРЯД</span>
                     </button>
-                    <button onclick="toggleBassBoost()" id="bass-boost-btn" class="w-full sm:w-auto px-5 py-3 rounded-2xl font-mono font-bold text-xs bg-white/5 hover:bg-white/10 text-slate-200 border[...]
+                    <button onclick="toggleBassBoost()" id="bass-boost-btn" class="w-full sm:w-auto px-5 py-3 rounded-2xl font-mono font-bold text-xs bg-white/5 hover:bg-white/10 text-slate-200 border border-white/15 flex items-center justify-center gap-2 transition-all">
                         <i class="fa-solid fa-wave-square text-pink-400"></i>
                         <span id="bass-boost-text">BASS BOOST: ВЫКЛ</span>
                     </button>
                 </div>
             </div>
 
-            <!-- Быстра�� навигация по лицам исполнителей (Мини-аватары) -->
+            <!-- Быстрая навигация по лицам исполнителей (Мини-аватары) -->
             <div class="mt-7 pt-6 border-t border-white/10">
                 <p class="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-3">Быстрый переход к артисту:</p>
                 <div id="quick-artist-pills" class="flex items-center gap-3 overflow-x-auto pb-2">
@@ -277,7 +277,7 @@
                 <div>
                     <span class="text-xs font-mono uppercase tracking-widest text-pink-400">ОФИЦИАЛЬНЫЙ ТРЕКЛИСТ</span>
                     <h2 class="font-display font-black text-2xl sm:text-3xl text-white mt-1">Все 5 любимых треков в одном месте</h2>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Нажми на любой трек для прослушивания или прикрепи свой полный MP3-файл �[...]
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Нажми на любой трек для прослушивания или прикрепи свой полный MP3-файл с телефона/ПК.</p>
                 </div>
                 <button onclick="openMp3Manager()" class="px-4 py-2.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 border border-pink-500/40 text-pink-200 text-xs font-bold shrink-0">
                     <i class="fa-solid fa-upload mr-1.5"></i> Загрузить свои MP3
@@ -300,7 +300,7 @@
                     </div>
                     <div>
                         <h3 class="font-display font-bold text-lg text-white">Загрузка своих MP3 и Фото</h3>
-                        <p class="text-xs text-slate-400">Хочешь полные версии треков или другое фото лица артиста? Загрузи их прямо со [...]
+                        <p class="text-xs text-slate-400">Хочешь полные версии треков или другое фото лица артиста? Загрузи их прямо со своего устройства!</p>
                     </div>
                 </div>
                 <button onclick="closeMp3Manager()" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 flex items-center justify-center text-slate-300">
@@ -310,7 +310,7 @@
 
             <div class="mt-4 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-200 leading-relaxed">
                 <i class="fa-solid fa-circle-info mr-1.5 text-cyan-400"></i>
-                <strong>Как это работает:</strong> Сайт уже автоматически подгружает официальные демо-превью из Apple Music / iTunes [...]
+                <strong>Как это работает:</strong> Сайт уже автоматически подгружает официальные демо-превью из Apple Music / iTunes и портреты из Википедии. Но если ты хочешь слушать <strong>полные MP3-файлы</strong> со своего телефона или компьютера — просто выбери их ниже, и они сразу заиграют в плеере!
             </div>
 
             <div id="mp3-manager-list" class="space-y-3 mt-5">
@@ -347,14 +347,14 @@
                 </div>
                 <div class="min-w-0 flex-1">
                     <div class="flex items-center gap-2">
-                        <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold rounded bg-pink-500/20 text-pink-300 border border-pink-500/30 uppercase shrink-0" id="player-badge">ЛЮБИМЫЙ �[...]
+                        <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold rounded bg-pink-500/20 text-pink-300 border border-pink-500/30 uppercase shrink-0" id="player-badge">ЛЮБИМЫЙ ТРЕК</span>
                         <span id="player-source-tag" class="text-[10px] font-mono text-emerald-400 truncate">● iTunes Stream</span>
                     </div>
                     <h4 id="player-track-title" class="font-display font-bold text-sm text-white truncate mt-0.5">in my zone</h4>
                     <p id="player-artist-name" class="text-xs text-slate-400 truncate">bbno$</p>
                 </div>
                 <!-- Кнопка загрузки своего MP3 для текущего трека на мобильных -->
-                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" title="Загрузить свой MP3 для этого трека" class="sm:hidden px-2.5 py-2 rounded-xl bg-white/5 bo[...]
+                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" title="Загрузить свой MP3 для этого трека" class="sm:hidden px-2.5 py-2 rounded-xl bg-white/5 border border-white/15 text-xs text-cyan-300 shrink-0">
                     <i class="fa-solid fa-upload"></i>
                 </button>
             </div>
@@ -365,7 +365,7 @@
                     <button onclick="prevTrack()" class="text-slate-400 hover:text-white transition-colors text-base" title="Предыдущий трек">
                         <i class="fa-solid fa-backward-step"></i>
                     </button>
-                    <button onclick="togglePlayPause()" id="main-play-btn" class="w-11 h-11 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-105 active:scale-95 text-white flex ite[...]
+                    <button onclick="togglePlayPause()" id="main-play-btn" class="w-11 h-11 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-105 active:scale-95 text-white flex items-center justify-center shadow-lg shadow-pink-500/30 transition-all">
                         <i id="main-play-icon" class="fa-solid fa-play text-base ml-0.5"></i>
                     </button>
                     <button onclick="nextTrack()" class="text-slate-400 hover:text-white transition-colors text-base" title="Следующий трек">
@@ -386,7 +386,7 @@
                     <i class="fa-solid fa-volume-high text-xs text-slate-400"></i>
                     <input type="range" id="player-volume" min="0" max="1" step="0.02" value="0.85" class="w-20" oninput="changeVolume(this.value)">
                 </div>
-                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-cyan-300 flex items[...]
+                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-cyan-300 flex items-center gap-1.5 transition-all" title="Прикрепить полный MP3 файл с устройства">
                     <i class="fa-solid fa-folder-open"></i>
                     <span>Свой MP3</span>
                 </button>
@@ -395,7 +395,7 @@
     </div>
 
     <!-- Уведомление (Тост) -->
-    <div id="toast-notification" class="fixed top-20 right-4 z-50 transform translate-x-[130%] transition-transform duration-300 glass-card rounded-2xl px-4 py-3 border border-pink-500/40 shadow-2xl f[...]
+    <div id="toast-notification" class="fixed top-20 right-4 z-50 transform translate-x-[130%] transition-transform duration-300 glass-card rounded-2xl px-4 py-3 border border-pink-500/40 shadow-2xl flex items-center gap-3 max-w-sm">
         <div class="w-8 h-8 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0">
             <i class="fa-solid fa-sparkles"></i>
         </div>
@@ -528,7 +528,7 @@
                     <rect x="140" y="118" width="120" height="142" rx="52" fill="#fde2d2"/>
                     <!-- Светлые волосы Joost Klein -->
                     <path d="M134 162 C134 100 266 100 266 162 C235 135 165 135 134 162 Z" fill="#fef08a"/>
-                    <!-- Глаза и фирменные светлые ус�� Joost -->
+                    <!-- Глаза и фирменные светлые усы Joost -->
                     <circle cx="172" cy="182" r="5" fill="#1e293b"/>
                     <circle cx="228" cy="182" r="5" fill="#1e293b"/>
                     <path d="M172 218 Q200 208 228 218" stroke="#eab308" stroke-width="7" fill="none" stroke-linecap="round"/>
@@ -566,7 +566,7 @@
 
         /* =========================================================================
            2. БАЗА ДАННЫХ ИСПОЛНИТЕЛЕЙ И ЛЮБИМЫХ ТРЕКОВ (СТРОГО ПО ЗАПРОСУ)
-           Описание посвящено САМИМ ИСПОЛНИТЕЛЯМ, а в блоке любимого трека—
+           Описание посвящено САМИМ ИСПОЛНИТЕЛЯМ, а в блоке любимого трека —
            указанный пользователем трек!
            ========================================================================= */
         const artistsData = [
@@ -582,7 +582,7 @@
                 badgeClass: 'from-emerald-400 to-rose-500',
                 borderGlow: 'hover:shadow-[0_0_35px_rgba(16,185,129,0.28)]',
                 // Описание САМОГО ИСПОЛНИТЕЛЯ
-                artistBio: 'Канадский рэпер, певец и главный харизматик мирового интернет-хип-хопа. Прославился своим нев[...]
+                artistBio: 'Канадский рэпер, певец и главный харизматик мирового интернет-хип-хопа. Прославился своим невероятно цепким басовым флоу, самоиронией, безумными косплеями и легендарным дуэтом с Yung Gravy (проект BABY GRAVY). Алекс стёр границы между гейминг-культурой, мемами, стримами и модным хаус-рэпом: каждый его клип и выход — это концентрированный дофамин, стиль и расслабленная уверенность.',
                 styleTags: ['#InternetHipHop', '#HouseRap', '#BabyNoMoney', '#Харизма'],
                 stats: { listeners: '19M+ в месяц', styleDna: 'Грув, Бас и Ирония' },
                 // Блок "Мой любимый трек у исполнителя"
@@ -614,7 +614,7 @@
                 badgeClass: 'from-purple-500 to-indigo-500',
                 borderGlow: 'hover:shadow-[0_0_35px_rgba(168,85,247,0.3)]',
                 // Описание САМОГО ИСПОЛНИТЕЛЯ
-                artistBio: 'Яркий и самобытный артист новой волны русскоязычной интернет-сцены. Начав с громких стримов, �[...]
+                artistBio: 'Яркий и самобытный артист новой волны русскоязычной интернет-сцены. Начав с громких стримов, фристайлов и баттловой иронии, Илья совершил мощную творческую трансформацию в глубокого, концептуального музыканта. В своём творчестве mzlff мастерски переплетает альтернативный хип-хоп, инди-рок, пронзительные метафоры взросления и честную меланхолию, которая откликается в сердце каждого молодого слушателя.',
                 styleTags: ['#НоваяВолна', '#КонцептАльбомы', '#Лирика', '#СветлаяПечаль'],
                 stats: { listeners: 'Топ-чарты СНГ', styleDna: 'Искренность и Атмосфера' },
                 // Блок "Мой любимый трек у исполнителя"
@@ -645,7 +645,7 @@
                 badgeClass: 'from-red-500 to-amber-500',
                 borderGlow: 'hover:shadow-[0_0_35px_rgba(239,68,68,0.28)]',
                 // Описание САМОГО ИСПОЛНИТЕЛЯ
-                artistBio: 'Американский певец, автор песен и музыкальный продюсер, ставший настоящим королём инди-гейми�[...]
+                artistBio: 'Американский певец, автор песен и музыкальный продюсер, ставший настоящим королём инди-гейминг поп-сцены на YouTube и в TikTok. Чарли Грин обладает уникальным талантом превращать главные феномены интернет-культуры, игры и вирусные сюжеты в мощные, радио-форматные электро-поп и синтвейв-бэнгеры с богатыми вокальными гармониями и сотнями миллионов прослушиваний.',
                 styleTags: ['#ElectroPop', '#Synthwave', '#VocalProduction', '#GeekCulture'],
                 stats: { listeners: '8M+ подписчиков', styleDna: 'Мощный Вокал и Синты' },
                 // Блок "Мой любимый трек у исполнителя"
@@ -676,7 +676,795 @@
                 badgeClass: 'from-blue-600 to-yellow-400',
                 borderGlow: 'hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]',
                 // Описание САМОГО ИСПОЛНИТЕЛЯ
-                artistBio: 'Нидерландский музыкант, рэпер и гений визуального перфоманса, перевернувший европейскую поп-[...]
+                artistBio: 'Нидерландский музыкант, рэпер и гений визуального перфоманса, перевернувший европейскую поп-сцену. Joost смешивает безумную энергию габбера 90-х, хэппи-хардкора и евродэнса с панк-эстетикой и арт-хаусом. Но за его рейв-безумием, культовыми синими костюмами с острыми плечами и гипнотическими танцами скрывается удивительно ранимый артист, превращающий личную боль в гимны единства и свободы.',
                 styleTags: ['#GabberPop', '#EuroRave', '#HappyHardcore', '#1983'],
                 stats: { listeners: 'Мировой феномен', styleDna: '160 BPM Рейв и Душа' },
-                // Блок "Мой любимый трек у исполнит");
+                // Блок "Мой любимый трек у исполнителя"
+                favoriteTrack: {
+                    title: 'Europapa',
+                    fullDisplay: 'Joost — Europapa',
+                    itunesQuery: 'Joost Europapa',
+                    fallbackQuery: 'Joost Klein',
+                    bpm: 160,
+                    synthStyle: 'gabber',
+                    audioUrl: null,
+                    isCustomFile: false
+                },
+                wikiPages: [
+                    { lang: 'en', title: 'Joost_Klein' },
+                    { lang: 'ru', title: 'Клейн,_Йост' }
+                ],
+                portraitUrl: null
+            },
+            {
+                id: 'morgenshtern',
+                number: '05',
+                stageName: 'Моргенштерн',
+                realName: 'Алишер Моргенштерн (MORGENSHTERN)',
+                country: '🌍 Уфа / Мировая сцена',
+                vibeTag: 'TRAP SHOWMAN / ROCK-POP',
+                accentFrom: '#ec4899',
+                accentTo: '#f59e0b',
+                badgeClass: 'from-pink-500 to-amber-500',
+                borderGlow: 'hover:shadow-[0_0_35px_rgba(236,72,153,0.3)]',
+                // Описание САМОГО ИСПОЛНИТЕЛЯ
+                artistBio: 'Один из самых громких, эпатажных и обсуждаемых шоуменов современной русскоязычной музыки. Прошёл путь от дерзкого видеоблогера с проектом «ИзиРеп» и короля перегруженного трэп-баса («Legendary Dust», «Million Dollar») до масштабного артиста, экспериментирующего с лирическим поп-роком, живыми гитарами и откровенной саморефлексией о славе, доме и поиске себя.',
+                styleTags: ['#Showman', '#NewEra', '#МелодичныйРок', '#Хитмейкер'],
+                stats: { listeners: 'Мульти-платина', styleDna: 'Эпатаж и Мелодрама' },
+                // Блок "Мой любимый трек у исполнителя"
+                favoriteTrack: {
+                    title: 'Лондон, Прага, Ницца',
+                    fullDisplay: 'Моргенштерн — Лондон, Прага, Ницца',
+                    itunesQuery: 'MORGENSHTERN ДОМ Лондон Прага Ницца',
+                    fallbackQuery: 'MORGENSHTERN',
+                    bpm: 120,
+                    synthStyle: 'guitarTrap',
+                    audioUrl: null,
+                    isCustomFile: false
+                },
+                wikiPages: [
+                    { lang: 'ru', title: 'Моргенштерн' },
+                    { lang: 'en', title: 'Morgenshtern' }
+                ],
+                portraitUrl: null
+            }
+        ];
+
+        // Инициализация стартовых SVG-портретов до загрузки реальных фото
+        artistsData.forEach(artist => {
+            artist.portraitUrl = createArtistFaceSVG(artist.id);
+        });
+
+        /* =========================================================================
+           3. АВТОМАТИЧЕСКАЯ ПОДГРУЗКА РЕАЛЬНЫХ ЛИЦ ИСПОЛНИТЕЛЕЙ И ТРЕКОВ (API)
+           ========================================================================= */
+        async function fetchRealPortraitsAndTracks() {
+            for (let i = 0; i < artistsData.length; i++) {
+                const artist = artistsData[i];
+
+                // 1) Пробуем получить реальный портрет лица из Wikipedia REST API
+                for (const wiki of artist.wikiPages) {
+                    try {
+                        const res = await fetch(`https://${wiki.lang}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(wiki.title)}`);
+                        if (res.ok) {
+                            const data = await res.json();
+                            const imgUrl = (data.originalimage && data.originalimage.source) || (data.thumbnail && data.thumbnail.source);
+                            if (imgUrl) {
+                                artist.portraitUrl = imgUrl;
+                                updateArtistPortraitDOM(i, imgUrl);
+                                break;
+                            }
+                        }
+                    } catch (e) {
+                        // Игнорируем ошибку и переходим к запасному источнику
+                    }
+                }
+
+                // 2) Подгружаем реальное аудио-превью трека из iTunes Search API
+                try {
+                    let songData = await searchItunesTrack(artist.favoriteTrack.itunesQuery);
+                    if (!songData && artist.favoriteTrack.fallbackQuery) {
+                        songData = await searchItunesTrack(artist.favoriteTrack.fallbackQuery);
+                    }
+                    if (songData) {
+                        if (songData.previewUrl && !artist.favoriteTrack.isCustomFile) {
+                            artist.favoriteTrack.audioUrl = songData.previewUrl;
+                        }
+                        // Если из Википедии фото не пришло, берём обложку артиста в высоком разрешении
+                        if (artist.portraitUrl.startsWith('data:image/svg') && songData.artworkUrl100) {
+                            const hiResArt = songData.artworkUrl100.replace('100x100bb', '600x600bb');
+                            artist.portraitUrl = hiResArt;
+                            updateArtistPortraitDOM(i, hiResArt);
+                        }
+                    }
+                } catch (e) {
+                    // В случае офлайна работает встроенный WebAudio-синтезатор
+                }
+            }
+            renderQuickPills();
+            renderPlaylistView();
+            updateGlobalPlayerUI();
+        }
+
+        async function searchItunesTrack(query) {
+            const url = `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&entity=song&limit=5`;
+            const response = await fetch(url);
+            if (!response.ok) return null;
+            const json = await response.json();
+            if (json.results && json.results.length > 0) {
+                return json.results[0];
+            }
+            return null;
+        }
+
+        function updateArtistPortraitDOM(index, newUrl) {
+            const imgs = document.querySelectorAll(`.artist-portrait-img-${index}`);
+            imgs.forEach(img => {
+                img.src = newUrl;
+            });
+            if (currentTrackIndex === index) {
+                document.getElementById('player-cover').src = newUrl;
+            }
+        }
+
+        /* =========================================================================
+           4. РЕНДЕРИНГ ИНТЕРФЕЙСА (КАРТОЧКИ С ЛИЦОМ + ПСЕВДОНИМОМ СНИЗУ)
+           ========================================================================= */
+        function renderAllViews() {
+            renderQuickPills();
+            renderGridCards();
+            renderSpotlightView();
+            renderPlaylistView();
+            renderMp3ManagerList();
+        }
+
+        function renderQuickPills() {
+            const container = document.getElementById('quick-artist-pills');
+            container.innerHTML = artistsData.map((artist, idx) => `
+                <button onclick="scrollToArtistOrPlay(${idx})" class="group flex items-center gap-2.5 pl-1.5 pr-4 py-1.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-pink-500/40 transition-all shrink-0">
+                    <img src="${artist.portraitUrl}" onerror="this.src='${createArtistFaceSVG(artist.id)}'" alt="${artist.stageName}" class="artist-portrait-img-${idx} w-8 h-8 rounded-xl object-cover object-top border border-white/20">
+                    <div class="text-left">
+                        <div class="font-display font-bold text-xs text-white group-hover:text-pink-300 transition-colors">${artist.stageName}</div>
+                        <div class="text-[10px] font-mono text-slate-400 truncate max-w-[120px]">♥ ${artist.favoriteTrack.title}</div>
+                    </div>
+                </button>
+            `).join('');
+        }
+
+        function renderGridCards() {
+            const container = document.getElementById('artists-grid-container');
+            container.innerHTML = artistsData.map((artist, idx) => {
+                const isThisPlaying = isPlaying && currentTrackIndex === idx;
+                return `
+                <article id="artist-card-${idx}" class="glass-card rounded-[28px] p-5 sm:p-6 flex flex-col justify-between relative overflow-hidden group ${artist.borderGlow}" style="--accent-from: ${artist.accentFrom}; --accent-to: ${artist.accentTo};">
+                    <!-- Верхнее неоновое свечение карточки -->
+                    <div class="absolute -top-24 -right-24 w-52 h-52 rounded-full opacity-20 blur-3xl pointer-events-none" style="background: linear-gradient(135deg, ${artist.accentFrom}, ${artist.accentTo});"></div>
+
+                    <div>
+                        <!-- Верхняя строка: Номер + Страна + Кнопка смены фото -->
+                        <div class="flex items-center justify-between gap-2 mb-4">
+                            <div class="flex items-center gap-2">
+                                <span class="px-2.5 py-1 rounded-lg bg-white/10 font-mono font-bold text-xs text-white border border-white/10">#${artist.number}</span>
+                                <span class="text-xs font-medium text-slate-300">${artist.country}</span>
+                            </div>
+                            <button onclick="triggerCustomPhotoUpload(${idx})" class="px-2.5 py-1 rounded-lg bg-white/5 hover:bg-white/15 text-[11px] font-mono text-slate-300 hover:text-white border border-white/10 transition-all flex items-center gap-1" title="Поставить своё фото лица исполнителя">
+                                <i class="fa-solid fa-camera text-pink-400"></i>
+                                <span>Своё фото</span>
+                            </button>
+                        </div>
+
+                        <!-- ГЛАВНЫЙ БЛОК №1: ЛИЦО ИСПОЛНИТЕЛЯ И СНИЗУ ЕГО ПСЕВДОНИМ -->
+                        <div class="flex flex-col items-center text-center mb-5">
+                            <!-- Портрет лица исполнителя -->
+                            <div class="portrait-ring w-44 h-44 sm:w-48 sm:h-48 rounded-3xl overflow-hidden shadow-2xl relative group/photo bg-[#12131f]">
+                                <img src="${artist.portraitUrl}" 
+                                     onerror="this.src='${createArtistFaceSVG(artist.id)}'" 
+                                     alt="Лицо исполнителя ${artist.stageName}" 
+                                     class="artist-portrait-img-${idx} w-full h-full object-cover object-top group-hover/photo:scale-105 transition-transform duration-500">
+                                
+                                <!-- Бейдж поверх угла фото -->
+                                <div class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded-md bg-black/65 backdrop-blur-md border border-white/15 text-[10px] font-mono text-white/90">
+                                    ЛИЦО АРТИСТА
+                                </div>
+                            </div>
+
+                            <!-- СНИЗУ ПОД ЛИЦОМ — ПСЕВДОНИМ ИСПОЛНИТЕЛЯ ДЛЯ МУЗЫКИ -->
+                            <div class="mt-3.5 w-full">
+                                <div class="inline-block px-3 py-0.5 rounded-full text-[10px] font-mono font-bold uppercase tracking-wider bg-gradient-to-r ${artist.badgeClass} text-white shadow-sm mb-1.5">
+                                    ${artist.vibeTag}
+                                </div>
+                                <h2 class="font-display font-black text-2xl sm:text-3xl tracking-tight text-white">
+                                    ${artist.stageName}
+                                </h2>
+                                <p class="text-xs text-slate-400 font-medium mt-0.5">${artist.realName}</p>
+                            </div>
+                        </div>
+
+                        <!-- ГЛАВНЫЙ БЛОК №2: ОПИСАНИЕ САМОГО ИСПОЛНИТЕЛЯ (НЕ ТРЕКА!) -->
+                        <div class="p-4 rounded-2xl bg-white/[0.03] border border-white/10 mb-5">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-pink-400 flex items-center gap-1.5">
+                                    <i class="fa-solid fa-user-astronaut"></i> ОБ ИСПОЛНИТЕЛЕ:
+                                </span>
+                                <span class="text-[11px] font-mono text-slate-400">${artist.stats.styleDna}</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-200 leading-relaxed">
+                                ${artist.artistBio}
+                            </p>
+                            <!-- Молодёжные хэштеги стиля артиста -->
+                            <div class="flex flex-wrap gap-1.5 mt-3 pt-2.5 border-t border-white/5">
+                                ${artist.styleTags.map(tag => `
+                                    <span class="px-2 py-0.5 rounded-md bg-white/5 text-[11px] font-mono text-slate-300">${tag}</span>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ГЛАВНЫЙ БЛОК №3: МОЙ ЛЮБИМЫЙ ТРЕК У ИСПОЛНИТЕЛЯ + ПЛЕЕР -->
+                    <div class="rounded-2xl p-4 bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/20 relative overflow-hidden">
+                        <div class="flex items-center justify-between gap-2 mb-2">
+                            <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+                                <i class="fa-solid fa-heart text-pink-500 animate-pulse"></i> Мой любимый трек у исполнителя:
+                            </span>
+                            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10">
+                                ${artist.favoriteTrack.isCustomFile ? '★ Свой MP3' : `${artist.favoriteTrack.bpm} BPM`}
+                            </span>
+                        </div>
+
+                        <div class="flex items-center justify-between gap-3 mt-2">
+                            <div class="min-w-0 flex-1">
+                                <div class="font-display font-bold text-base sm:text-lg text-white truncate">
+                                    ${artist.favoriteTrack.title}
+                                </div>
+                                <div class="text-xs text-slate-300 truncate font-medium">
+                                    Исполнитель: <span class="text-white font-semibold">${artist.stageName}</span>
+                                </div>
+                            </div>
+
+                            <!-- Кнопки: Слушать и Загрузить свой MP3 -->
+                            <div class="flex items-center gap-2 shrink-0">
+                                <button onclick="triggerCustomAudioUpload(${idx})" title="Скинуть/выбрать свой полный MP3 файл для этого трека" class="w-10 h-10 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-cyan-300 flex items-center justify-center transition-all">
+                                    <i class="fa-solid fa-file-arrow-up"></i>
+                                </button>
+                                <button onclick="playTrack(${idx})" class="px-4 h-10 rounded-xl bg-gradient-to-r ${artist.badgeClass} hover:opacity-95 text-white font-display font-bold text-xs flex items-center gap-2 shadow-lg transition-transform active:scale-95">
+                                    <i class="fa-solid ${isThisPlaying ? 'fa-pause' : 'fa-play'}"></i>
+                                    <span>${isThisPlaying ? 'ПАУЗА' : 'СЛУШАТЬ'}</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        /* =========================================================================
+           5. РЕЖИМ ФОКУС 360° (SPOTLIGHT) И РЕЖИМ ПЛЕЙЛИСТА
+           ========================================================================= */
+        let spotlightIndex = 0;
+
+        function renderSpotlightView() {
+            const artist = artistsData[spotlightIndex];
+            const isThisPlaying = isPlaying && currentTrackIndex === spotlightIndex;
+
+            const dotsContainer = document.getElementById('spotlight-dots');
+            dotsContainer.innerHTML = artistsData.map((a, idx) => `
+                <button onclick="setSpotlight(${idx})" class="h-2.5 rounded-full transition-all ${idx === spotlightIndex ? 'w-8 bg-pink-500' : 'w-2.5 bg-white/20 hover:bg-white/40'}"></button>
+            `).join('');
+
+            const container = document.getElementById('spotlight-container');
+            container.innerHTML = `
+                <div class="glass-card rounded-3xl p-6 sm:p-10 border border-white/20 relative overflow-hidden">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <!-- Левая колонка: Лицо + Псевдоним снизу -->
+                        <div class="lg:col-span-5 flex flex-col items-center text-center">
+                            <div class="portrait-ring w-60 h-60 sm:w-72 sm:h-72 rounded-3xl overflow-hidden shadow-2xl bg-[#12131f]" style="--accent-from: ${artist.accentFrom}; --accent-to: ${artist.accentTo};">
+                                <img src="${artist.portraitUrl}" onerror="this.src='${createArtistFaceSVG(artist.id)}'" alt="${artist.stageName}" class="artist-portrait-img-${spotlightIndex} w-full h-full object-cover object-top">
+                            </div>
+                            <!-- Снизу псевдоним исполнителя -->
+                            <div class="mt-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-mono font-bold bg-gradient-to-r ${artist.badgeClass} text-white">
+                                    ПСЕВДОНИМ ИСПОЛНИТЕЛЯ
+                                </span>
+                                <h2 class="font-display font-black text-3xl sm:text-4xl text-white mt-2">${artist.stageName}</h2>
+                                <p class="text-sm text-slate-400 mt-1">${artist.realName} • ${artist.country}</p>
+                            </div>
+                        </div>
+
+                        <!-- Правая колонка: Описание исполнителя + Любимый трек -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <div class="p-5 sm:p-6 rounded-2xl bg-white/5 border border-white/10">
+                                <div class="text-xs font-mono font-bold text-pink-400 uppercase tracking-wider mb-2">
+                                    <i class="fa-solid fa-star mr-1"></i> ИСТОРИЯ И СТИЛЬ ИСПОЛНИТЕЛЯ (НЕ ОПИСАНИЕ ТРЕКА)
+                                </div>
+                                <p class="text-sm sm:text-base text-slate-200 leading-relaxed">
+                                    ${artist.artistBio}
+                                </p>
+                                <div class="flex flex-wrap gap-2 mt-4">
+                                    ${artist.styleTags.map(t => `<span class="px-3 py-1 rounded-lg bg-white/10 text-xs font-mono text-white">${t}</span>`).join('')}
+                                </div>
+                            </div>
+
+                            <div class="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-pink-500/15 via-purple-500/15 to-cyan-500/15 border border-pink-500/30">
+                                <div class="text-xs font-mono font-bold uppercase text-cyan-300 mb-1">
+                                    🔥 МОЙ ЛЮБИМЫЙ ТРЕК У ИСПОЛНИТЕЛЯ:
+                                </div>
+                                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-2">
+                                    <div>
+                                        <div class="font-display font-black text-xl sm:text-2xl text-white">${artist.favoriteTrack.fullDisplay}</div>
+                                        <div class="text-xs text-slate-300 mt-1">Темп: ${artist.favoriteTrack.bpm} BPM • Нажми «Слушать» или загрузи свой полный MP3</div>
+                                    </div>
+                                    <div class="flex items-center gap-2.5">
+                                        <button onclick="triggerCustomAudioUpload(${spotlightIndex})" class="px-4 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-bold text-cyan-300 border border-white/15">
+                                            <i class="fa-solid fa-upload mr-1"></i> Свой MP3
+                                        </button>
+                                        <button onclick="playTrack(${spotlightIndex})" class="px-6 py-3 rounded-xl bg-gradient-to-r ${artist.badgeClass} text-white font-display font-bold text-xs shadow-xl">
+                                            <i class="fa-solid ${isThisPlaying ? 'fa-pause' : 'fa-play'} mr-1.5"></i>
+                                            ${isThisPlaying ? 'ПАУЗА' : 'ВКЛЮЧИТЬ ТРЕК'}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function stepSpotlight(dir) {
+            spotlightIndex = (spotlightIndex + dir + artistsData.length) % artistsData.length;
+            renderSpotlightView();
+        }
+
+        function setSpotlight(idx) {
+            spotlightIndex = idx;
+            renderSpotlightView();
+        }
+
+        function renderPlaylistView() {
+            const container = document.getElementById('playlist-rows');
+            if (!container) return;
+            container.innerHTML = artistsData.map((artist, idx) => {
+                const active = currentTrackIndex === idx && isPlaying;
+                return `
+                <div class="py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:bg-white/[0.03] px-3 rounded-2xl transition-colors">
+                    <div class="flex items-center gap-4 min-w-0">
+                        <span class="font-mono font-bold text-sm text-slate-500 w-6">#${artist.number}</span>
+                        <img src="${artist.portraitUrl}" onerror="this.src='${createArtistFaceSVG(artist.id)}'" class="artist-portrait-img-${idx} w-14 h-14 rounded-2xl object-cover object-top border border-white/20 shrink-0">
+                        <div class="min-w-0">
+                            <div class="flex items-center gap-2 flex-wrap">
+                                <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-500/30">Мой любимый трек</span>
+                                <span class="text-xs font-mono text-slate-400">${artist.favoriteTrack.isCustomFile ? '★ Полный MP3 загружен' : 'Авто-стрим активен'}</span>
+                            </div>
+                            <h4 class="font-display font-bold text-base sm:text-lg text-white truncate mt-0.5">${artist.favoriteTrack.title}</h4>
+                            <p class="text-xs text-slate-300">Исполнитель: <strong class="text-white">${artist.stageName}</strong> (${artist.realName})</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2.5 self-end sm:self-center shrink-0">
+                        <button onclick="triggerCustomAudioUpload(${idx})" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 text-xs font-mono text-cyan-300">
+                            <i class="fa-solid fa-file-audio mr-1"></i> Загрузить MP3
+                        </button>
+                        <button onclick="playTrack(${idx})" class="px-5 py-2.5 rounded-xl bg-gradient-to-r ${artist.badgeClass} text-white font-display font-bold text-xs">
+                            <i class="fa-solid ${active ? 'fa-pause' : 'fa-play'} mr-1"></i> ${active ? 'Играет' : 'Слушать'}
+                        </button>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function switchView(mode) {
+            const views = ['grid', 'spotlight', 'playlist'];
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                const tab = document.getElementById(`tab-${v}`);
+                if (v === mode) {
+                    el.classList.remove('hidden');
+                    tab.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow';
+                } else {
+                    el.classList.add('hidden');
+                    tab.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white';
+                }
+            });
+            if (mode === 'spotlight') renderSpotlightView();
+            if (mode === 'playlist') renderPlaylistView();
+        }
+
+        function scrollToArtistOrPlay(idx) {
+            const gridEl = document.getElementById('view-grid');
+            if (gridEl.classList.contains('hidden')) {
+                switchView('grid');
+            }
+            const card = document.getElementById(`artist-card-${idx}`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+            playTrack(idx);
+        }
+
+        /* =========================================================================
+           6. АУДИО-ДВИЖОК: ПОДДЕРЖКА ITUNES PREVIEW + СВОИХ MP3 + WEBAUDIO СИНТ-БИТ
+           ========================================================================= */
+        let currentTrackIndex = 0;
+        let isPlaying = false;
+        const audioEl = new Audio();
+        audioEl.crossOrigin = "anonymous";
+        audioEl.volume = 0.85;
+
+        // Web Audio API контекст для Bass Boost и синтезатора резервного бита
+        let audioCtx = null;
+        let bassFilter = null;
+        let isBassBoosted = false;
+        let synthInterval = null;
+        let usingSynthFallback = false;
+        let synthProgress = 0;
+
+        function ensureAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+                bassFilter = audioCtx.createBiquadFilter();
+                bassFilter.type = 'lowshelf';
+                bassFilter.frequency.value = 110;
+                bassFilter.gain.value = isBassBoosted ? 10 : 0;
+                bassFilter.connect(audioCtx.destination);
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function toggleBassBoost() {
+            ensureAudioContext();
+            isBassBoosted = !isBassBoosted;
+            if (bassFilter) {
+                bassFilter.gain.value = isBassBoosted ? 10 : 0;
+            }
+            const btn = document.getElementById('bass-boost-btn');
+            const txt = document.getElementById('bass-boost-text');
+            if (isBassBoosted) {
+                btn.classList.add('border-pink-500', 'bg-pink-500/20', 'text-white');
+                txt.textContent = 'BASS BOOST: ВКЛ 🔥';
+                showToast('Bass Boost включён! Низкие частоты усилены.');
+            } else {
+                btn.classList.remove('border-pink-500', 'bg-pink-500/20', 'text-white');
+                txt.textContent = 'BASS BOOST: ВЫКЛ';
+                showToast('Bass Boost выключен.');
+            }
+        }
+
+        async function playTrack(index) {
+            ensureAudioContext();
+
+            // Если нажали на уже играющий трек — ставим на паузу
+            if (currentTrackIndex === index && isPlaying) {
+                pausePlayback();
+                return;
+            }
+
+            stopSynthBeat();
+            currentTrackIndex = index;
+            const artist = artistsData[index];
+            updateGlobalPlayerUI();
+
+            if (artist.favoriteTrack.audioUrl) {
+                usingSynthFallback = false;
+                audioEl.src = artist.favoriteTrack.audioUrl;
+                try {
+                    await audioEl.play();
+                    isPlaying = true;
+                    showToast(`Играет: ${artist.favoriteTrack.fullDisplay}`);
+                } catch (err) {
+                    startSynthBeat(artist);
+                }
+            } else {
+                // Если превью ещё ищется или недоступно в регионе — включаем фирменный клубный синт-бит в темпе трека
+                startSynthBeat(artist);
+            }
+
+            refreshPlayButtons();
+        }
+
+        function togglePlayPause() {
+            if (isPlaying) {
+                pausePlayback();
+            } else {
+                playTrack(currentTrackIndex);
+            }
+        }
+
+        function pausePlayback() {
+            audioEl.pause();
+            stopSynthBeat();
+            isPlaying = false;
+            refreshPlayButtons();
+        }
+
+        function nextTrack() {
+            const nextIdx = (currentTrackIndex + 1) % artistsData.length;
+            playTrack(nextIdx);
+        }
+
+        function prevTrack() {
+            const prevIdx = (currentTrackIndex - 1 + artistsData.length) % artistsData.length;
+            playTrack(prevIdx);
+        }
+
+        // Генератор клубного/жанрового бита на случай офлайна (чтобы плеер качал всегда)
+        function startSynthBeat(artist) {
+            ensureAudioContext();
+            stopSynthBeat();
+            usingSynthFallback = true;
+            isPlaying = true;
+            synthProgress = 0;
+
+            const bpm = artist.favoriteTrack.bpm || 128;
+            const stepMs = (60 / bpm / 2) * 1000;
+            let step = 0;
+
+            const notesByStyle = {
+                house: [110, 110, 130.81, 146.83, 164.81, 130.81, 110, 98],
+                melancholy: [220, 261.63, 329.63, 293.66, 196, 246.94, 220, 164.81],
+                synthpop: [261.63, 329.63, 392, 523.25, 392, 329.63, 293.66, 246.94],
+                gabber: [130.81, 130.81, 261.63, 130.81, 155.56, 146.83, 130.81, 196],
+                guitarTrap: [164.81, 246.94, 329.63, 293.66, 261.63, 220, 196, 164.81]
+            };
+            const scale = notesByStyle[artist.favoriteTrack.synthStyle] || notesByStyle.house;
+
+            showToast(`Играет демо-бит (${bpm} BPM): ${artist.favoriteTrack.fullDisplay}. Можешь загрузить свой MP3!`);
+
+            synthInterval = setInterval(() => {
+                if (!isPlaying) return;
+                const now = audioCtx.currentTime;
+
+                // Бочка (Kick) на чётных шагах
+                if (step % 2 === 0) {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.frequency.setValueAtTime(140, now);
+                    osc.frequency.exponentialRampToValueAtTime(38, now + 0.14);
+                    gain.gain.setValueAtTime(audioEl.volume * 0.65, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+                    osc.connect(gain);
+                    gain.connect(bassFilter || audioCtx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.17);
+                }
+
+                // Мелодический лид / бас
+                const leadOsc = audioCtx.createOscillator();
+                const leadGain = audioCtx.createGain();
+                leadOsc.type = artist.favoriteTrack.synthStyle === 'gabber' ? 'sawtooth' : 'triangle';
+                leadOsc.frequency.setValueAtTime(scale[step % scale.length], now);
+                leadGain.gain.setValueAtTime(audioEl.volume * 0.22, now);
+                leadGain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+                leadOsc.connect(leadGain);
+                leadGain.connect(bassFilter || audioCtx.destination);
+                leadOsc.start(now);
+                leadOsc.stop(now + 0.19);
+
+                step++;
+                synthProgress = (synthProgress + (stepMs / 30000) * 100) % 100;
+                document.getElementById('player-seek').value = synthProgress;
+                document.getElementById('top-progress-fill').style.width = `${synthProgress}%`;
+                document.getElementById('player-current-time').textContent = formatTime((synthProgress / 100) * 30);
+            }, stepMs);
+        }
+
+        function stopSynthBeat() {
+            if (synthInterval) {
+                clearInterval(synthInterval);
+                synthInterval = null;
+            }
+        }
+
+        // События HTML5 Audio
+        audioEl.addEventListener('timeupdate', () => {
+            if (!audioEl.duration) return;
+            const pct = (audioEl.currentTime / audioEl.duration) * 100;
+            document.getElementById('player-seek').value = pct;
+            document.getElementById('top-progress-fill').style.width = `${pct}%`;
+            document.getElementById('player-current-time').textContent = formatTime(audioEl.currentTime);
+            document.getElementById('player-duration').textContent = formatTime(audioEl.duration);
+        });
+
+        audioEl.addEventListener('ended', () => {
+            nextTrack();
+        });
+
+        function onSeekInput(val) {
+            if (!usingSynthFallback && audioEl.duration) {
+                audioEl.currentTime = (val / 100) * audioEl.duration;
+            } else {
+                synthProgress = parseFloat(val);
+            }
+        }
+
+        function seekFromBar(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const pct = ((e.clientX - rect.left) / rect.width) * 100;
+            onSeekInput(pct);
+        }
+
+        function changeVolume(val) {
+            audioEl.volume = parseFloat(val);
+        }
+
+        function formatTime(sec) {
+            const s = Math.floor(sec || 0);
+            const mins = Math.floor(s / 60);
+            const rem = s % 60;
+            return `${mins}:${rem < 10 ? '0' : ''}${rem}`;
+        }
+
+        function updateGlobalPlayerUI() {
+            const artist = artistsData[currentTrackIndex];
+            document.getElementById('player-cover').src = artist.portraitUrl;
+            document.getElementById('player-track-title').textContent = artist.favoriteTrack.title;
+            document.getElementById('player-artist-name').textContent = `${artist.stageName} (${artist.realName})`;
+
+            const tag = document.getElementById('player-source-tag');
+            if (artist.favoriteTrack.isCustomFile) {
+                tag.textContent = '★ Свой полный MP3';
+                tag.className = 'text-[10px] font-mono text-cyan-300 truncate';
+            } else if (artist.favoriteTrack.audioUrl) {
+                tag.textContent = '● iTunes Official Preview';
+                tag.className = 'text-[10px] font-mono text-emerald-400 truncate';
+            } else {
+                tag.textContent = `● Synth Beat (${artist.favoriteTrack.bpm} BPM)`;
+                tag.className = 'text-[10px] font-mono text-amber-300 truncate';
+            }
+        }
+
+        function refreshPlayButtons() {
+            const mainIcon = document.getElementById('main-play-icon');
+            const vinylWrap = document.getElementById('player-vinyl-wrap');
+            if (isPlaying) {
+                mainIcon.className = 'fa-solid fa-pause text-base';
+                vinylWrap.classList.add('animate-spin-slow');
+            } else {
+                mainIcon.className = 'fa-solid fa-play text-base ml-0.5';
+                vinylWrap.classList.remove('animate-spin-slow');
+            }
+            renderGridCards();
+            renderSpotlightView();
+            renderPlaylistView();
+            updateGlobalPlayerUI();
+        }
+
+        /* =========================================================================
+           7. ЗАГРУЗКА СВОИХ MP3-ФАЙЛОВ И ФОТО ЛИЦ ПОЛЬЗОВАТЕЛЕМ
+           ========================================================================= */
+        let targetArtistUploadIndex = 0;
+
+        function triggerCustomAudioUpload(artistIdx) {
+            targetArtistUploadIndex = artistIdx;
+            const input = document.getElementById('hidden-audio-input');
+            input.value = '';
+            input.click();
+        }
+
+        function triggerCustomPhotoUpload(artistIdx) {
+            targetArtistUploadIndex = artistIdx;
+            const input = document.getElementById('hidden-photo-input');
+            input.value = '';
+            input.click();
+        }
+
+        document.getElementById('hidden-audio-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const objectUrl = URL.createObjectURL(file);
+            const artist = artistsData[targetArtistUploadIndex];
+            artist.favoriteTrack.audioUrl = objectUrl;
+            artist.favoriteTrack.isCustomFile = true;
+
+            renderMp3ManagerList();
+            showToast(`Загружен полный трек для ${artist.stageName}: ${file.name}`);
+            playTrack(targetArtistUploadIndex);
+        });
+
+        document.getElementById('hidden-photo-input').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const objectUrl = URL.createObjectURL(file);
+            const artist = artistsData[targetArtistUploadIndex];
+            artist.portraitUrl = objectUrl;
+            updateArtistPortraitDOM(targetArtistUploadIndex, objectUrl);
+            renderAllViews();
+            showToast(`Обновлено фото лица для ${artist.stageName}!`);
+        });
+
+        function openMp3Manager() {
+            renderMp3ManagerList();
+            const modal = document.getElementById('mp3-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeMp3Manager() {
+            const modal = document.getElementById('mp3-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function renderMp3ManagerList() {
+            const list = document.getElementById('mp3-manager-list');
+            if (!list) return;
+            list.innerHTML = artistsData.map((artist, idx) => `
+                <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <img src="${artist.portraitUrl}" onerror="this.src='${createArtistFaceSVG(artist.id)}'" class="artist-portrait-img-${idx} w-12 h-12 rounded-xl object-cover object-top border border-white/20">
+                        <div>
+                            <div class="font-display font-bold text-sm text-white">${artist.stageName}</div>
+                            <div class="text-xs text-pink-300 font-medium">Любимый трек: ${artist.favoriteTrack.title}</div>
+                            <div class="text-[11px] font-mono ${artist.favoriteTrack.isCustomFile ? 'text-emerald-400' : 'text-slate-400'}">
+                                ${artist.favoriteTrack.isCustomFile ? '✓ Загружен твой MP3-файл' : 'Сейчас: Авто-превью'}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="triggerCustomPhotoUpload(${idx})" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/15 border border-white/15 text-xs text-slate-200">
+                            <i class="fa-solid fa-camera mr-1 text-pink-400"></i> Фото лица
+                        </button>
+                        <button onclick="triggerCustomAudioUpload(${idx})" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-xs font-bold text-cyan-200">
+                            <i class="fa-solid fa-file-audio mr-1"></i> Выбрать MP3
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        /* =========================================================================
+           8. ЖИВОЙ CANVAS-ВИЗУАЛИЗАТОР ЧАСТОТ В НИЖНЕМ ПЛЕЕРЕ
+           ========================================================================= */
+        const canvas = document.getElementById('audio-visualizer');
+        const ctx = canvas.getContext('2d');
+
+        function animateVisualizer() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const barCount = 18;
+            const barWidth = 4;
+            const gap = 2;
+
+            for (let i = 0; i < barCount; i++) {
+                let barHeight = 4;
+                if (isPlaying) {
+                    const wave = Math.sin(Date.now() * 0.012 + i * 0.6) * 0.5 + 0.5;
+                    const jitter = Math.random() * 0.35;
+                    barHeight = Math.max(4, Math.min(30, (wave + jitter) * (isBassBoosted ? 30 : 24)));
+                }
+                const x = i * (barWidth + gap) + 4;
+                const y = (canvas.height - barHeight) / 2;
+
+                const grad = ctx.createLinearGradient(0, y, 0, y + barHeight);
+                grad.addColorStop(0, '#ec4899');
+                grad.addColorStop(1, '#22d3ee');
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.roundRect(x, y, barWidth, barHeight, 2);
+                ctx.fill();
+            }
+            requestAnimationFrame(animateVisualizer);
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-text').textContent = message;
+            toast.classList.remove('translate-x-[130%]');
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => {
+                toast.classList.add('translate-x-[130%]');
+            }, 3400);
+        }
+
+        // Запуск при загрузке страницы
+        window.addEventListener('DOMContentLoaded', () => {
+            renderAllViews();
+            updateGlobalPlayerUI();
+            animateVisualizer();
+            fetchRealPortraitsAndTracks();
+        });
+    </script>
+</body>
+</html>
