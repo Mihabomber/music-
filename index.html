@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOUND.ZONE // Топ-5 Исполнителей и Любимые Треки</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Unbounded (молодёжный акцентный), Inter (читаемый текст), JetBrains Mono (бейджи) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&family=Unbounded:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Unbounded', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 8s linear infinite',
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'marquee': 'marquee 28s linear infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-6px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg-dark: #07070c;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: #f8fafc;
+            overflow-x: hidden;
+            selection-background-color: #ec4899;
+        }
+        /* Фоновая кибер-сетка и неоновое свечение */
+        .cyber-grid {
+            background-size: 42px 42px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        }
+        /* Glassmorphism карточки */
+        .glass-card {
+            background: rgba(17, 18, 28, 0.78);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+        /* Кастомный скроллбар */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090910;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #27273a;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ec4899;
+        }
+        /* Анимация эквалайзера */
+        .eq-bar {
+            width: 3px;
+            border-radius: 99px;
+            animation: eqBounce 0.8s ease-in-out infinite alternate;
+        }
+        @keyframes eqBounce {
+            0% { height: 4px; }
+            100% { height: 18px; }
+        }
+        /* Стилизация ползунка аудио */
+        input[type=range] {
+            -webkit-appearance: none;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+            margin-top: -5px;
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.9);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 999px;
+        }
+        .portrait-ring {
+            position: relative;
+        }
+        .portrait-ring::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 1.5rem;
+            padding: 3px;
+            background: linear-gradient(135deg, var(--accent-from, #ec4899), transparent 50%, var(--accent-to, #6366f1));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="cyber-grid min-h-screen pb-36 relative selection:bg-pink-500 selection:text-white">
+
+    <!-- Декоративные неоновые пятна на фоне -->
+    <div class="fixed top-[-10%] left-[-10%] w-[420px] h-[420px] rounded-full bg-fuchsia-600/20 blur-[130px] pointer-events-none z-0"></div>
+    <div class="fixed top-[35%] right-[-10%] w-[460px] h-[460px] rounded-full bg-cyan-500/15 blur-[140px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[-10%] left-[25%] w-[500px] h-[500px] rounded-full bg-indigo-600/20 blur-[150px] pointer-events-none z-0"></div>
+
+    <!-- Бегущая молодёжная строка сверху (Ticker) -->
+    <div class="relative z-20 bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-500 text-white py-2 overflow-hidden border-b border-white/15 shadow-lg">
+        <div class="flex whitespace-nowrap animate-marquee font-mono text-xs sm:text-sm font-bold tracking-wider uppercase">
+            <span class="mx-6">⚡ ТОП-5 ЛЮБИМЫХ ИСПОЛНИТЕЛЕЙ</span>
+            <span class="mx-6">🔥 BBNO$ — IN MY ZONE</span>
+            <span class="mx-6">🎠 MZLFF — КАРУСЕЛЬ</span>
+            <span class="mx-6">🎮 CG5 — YOUR VERITY</span>
+            <span class="mx-6">🇪🇺 JOOST — EUROPAPA</span>
+            <span class="mx-6">✈️ МОРГЕНШТЕРН — ЛОНДОН, ПРАГА, НИЦЦА</span>
+            <span class="mx-6">🎧 ВКЛЮЧАЙ ЗВУК НА МАКСИМУМ // ЗАГРУЖАЙ СВОИ MP3</span>
+            <!-- Повтор для бесшовной анимации -->
+            <span class="mx-6">⚡ ТОП-5 ЛЮБИМЫХ ИСПОЛНИТЕЛЕЙ</span>
+            <span class="mx-6">🔥 BBNO$ — IN MY ZONE</span>
+            <span class="mx-6">🎠 MZLFF — КАРУСЕЛЬ</span>
+            <span class="mx-6">🎮 CG5 — YOUR VERITY</span>
+            <span class="mx-6">🇪🇺 JOOST — EUROPAPA</span>
+            <span class="mx-6">✈️ МОРГЕНШТЕРН — ЛОНДОН, ПРАГА, НИЦЦА</span>
+            <span class="mx-6">🎧 ВКЛЮЧАЙ ЗВУК НА МАКСИМУМ // ЗАГРУЖАЙ СВОИ MP3</span>
+        </div>
+    </div>
+
+    <!-- Навигационная шапка -->
+    <header class="sticky top-0 z-30 backdrop-blur-xl bg-[#07070c]/80 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap items-center justify-between gap-3">
+            <!-- Логотип -->
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-pink-500 via-purple-500 to-cyan-400 p-[2px] shadow-lg shadow-pink-500/25">
+                    <div class="w-full h-full bg-[#0b0b14] rounded-[14px] flex items-center justify-center">
+                        <i class="fa-solid fa-compact-disc text-xl text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-cyan-400 animate-spin-slow"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-display font-black text-lg sm:text-xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-pink-200 to-cyan-300">VIBE.VAULT</span>
+                        <span class="px-2 py-0.5 text-[10px] font-mono font-bold uppercase rounded-full bg-pink-500/20 text-pink-300 border border-pink-500/30">2026 EDITION</span>
+                    </div>
+                    <p class="text-xs text-slate-400 hidden sm:block">Лица сцены • Описание артистов • Любимые бэнгеры</p>
+                </div>
+            </div>
+
+            <!-- Переключатель режимов и кнопка загрузки треков -->
+            <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                <div class="bg-white/5 p-1 rounded-xl border border-white/10 flex items-center">
+                    <button onclick="switchView('grid')" id="tab-grid" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all bg-gradient-to-r from-pink-500 to-purple-600 text-white shadow[...]
+                        <i class="fa-solid fa-grip mr-1.5"></i>Карточки
+                    </button>
+                    <button onclick="switchView('spotlight')" id="tab-spotlight" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white">
+                        <i class="fa-solid fa-bolt mr-1.5"></i>Фокус 360°
+                    </button>
+                    <button onclick="switchView('playlist')" id="tab-playlist" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all text-slate-300 hover:text-white">
+                        <i class="fa-solid fa-headphones mr-1.5"></i>Все 5 треков
+                    </button>
+                </div>
+
+                <button onclick="openMp3Manager()" class="px-3.5 py-2 rounded-xl text-xs font-bold bg-gradient-to-r from-cyan-500/20 to-blue-500/20 hover:from-cyan-500/30 hover:to-blue-500/30 text-cya[...]
+                    <i class="fa-solid fa-file-audio text-cyan-400"></i>
+                    <span>Свои MP3 / Фото</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный Hero-блок -->
+    <section class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-6">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 lg:p-10 border border-white/15 relative overflow-hidden">
+            <!-- Фоновый градиент внутри Hero -->
+            <div class="absolute -right-20 -top-20 w-80 h-80 bg-gradient-to-br from-pink-500/25 via-purple-500/20 to-cyan-500/20 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
+                <div class="max-w-3xl">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/15 text-xs font-mono text-pink-300 mb-4">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                        <span>АВТО-ПОДГРУЗКА ПРЕВЬЮ ТРЕКОВ И ПОРТРЕТОВ АКТИВНА</span>
+                    </div>
+                    <h1 class="font-display font-black text-2xl sm:text-4xl lg:text-5xl leading-tight tracking-tight text-white">
+                        МОЙ МУЗЫКАЛЬНЫЙ <span class="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-cyan-400">ДНК-ПЛЕЙЛИСТ</span>
+                    </h1>
+                    <p class="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Пять абсолютно разных вселенных — от канадского хаус-рэпа и зумерской меланхолии до нидерландс[...]
+                    </p>
+                </div>
+
+                <!-- Быстрые кнопки запуска -->
+                <div class="flex flex-wrap sm:flex-nowrap lg:flex-col gap-3 shrink-0">
+                    <button onclick="playTrack(0)" class="w-full sm:w-auto px-6 py-3.5 rounded-2xl font-display font-bold text-xs sm:text-sm bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500[...]
+                        <i class="fa-solid fa-play text-base"></i>
+                        <span>ВКЛЮЧИТЬ ВСЕ 5 ТРЕКОВ ПОДРЯД</span>
+                    </button>
+                    <button onclick="toggleBassBoost()" id="bass-boost-btn" class="w-full sm:w-auto px-5 py-3 rounded-2xl font-mono font-bold text-xs bg-white/5 hover:bg-white/10 text-slate-200 border[...]
+                        <i class="fa-solid fa-wave-square text-pink-400"></i>
+                        <span id="bass-boost-text">BASS BOOST: ВЫКЛ</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Быстра�� навигация по лицам исполнителей (Мини-аватары) -->
+            <div class="mt-7 pt-6 border-t border-white/10">
+                <p class="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-3">Быстрый переход к артисту:</p>
+                <div id="quick-artist-pills" class="flex items-center gap-3 overflow-x-auto pb-2">
+                    <!-- Заполняется через JS -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ: 1. РЕЖИМ КАРТОЧЕК (GRID VIEW) -->
+    <main id="view-grid" class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div id="artists-grid-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
+            <!-- Карточки 5 артистов рендерятся автоматически -->
+        </div>
+    </main>
+
+    <!-- 2. РЕЖИМ ФОКУС 360° (SPOTLIGHT VIEW) -->
+    <section id="view-spotlight" class="hidden relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between mb-4">
+            <button onclick="stepSpotlight(-1)" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-bold flex items-center gap-2">
+                <i class="fa-solid fa-arrow-left"></i> Предыдущий
+            </button>
+            <div id="spotlight-dots" class="flex items-center gap-2"></div>
+            <button onclick="stepSpotlight(1)" class="px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-sm font-bold flex items-center gap-2">
+                Следующий <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
+        <div id="spotlight-container"></div>
+    </section>
+
+    <!-- 3. РЕЖИМ ПЛЕЙЛИСТА (ВСЕ 5 ЛЮБИМЫХ ТРЕКОВ) -->
+    <section id="view-playlist" class="hidden relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-white/15">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+                <div>
+                    <span class="text-xs font-mono uppercase tracking-widest text-pink-400">ОФИЦИАЛЬНЫЙ ТРЕКЛИСТ</span>
+                    <h2 class="font-display font-black text-2xl sm:text-3xl text-white mt-1">Все 5 любимых треков в одном месте</h2>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">Нажми на любой трек для прослушивания или прикрепи свой полный MP3-файл �[...]
+                </div>
+                <button onclick="openMp3Manager()" class="px-4 py-2.5 rounded-xl bg-pink-500/20 hover:bg-pink-500/30 border border-pink-500/40 text-pink-200 text-xs font-bold shrink-0">
+                    <i class="fa-solid fa-upload mr-1.5"></i> Загрузить свои MP3
+                </button>
+            </div>
+
+            <div id="playlist-rows" class="divide-y divide-white/10 mt-4">
+                <!-- Генерируется через JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- МОДАЛЬНОЕ ОКНО: МЕНЕДЖЕР СВОИХ MP3 И ФОТО -->
+    <div id="mp3-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+        <div class="glass-card rounded-3xl max-w-2xl w-full p-6 sm:p-8 border border-white/20 max-h-[90vh] overflow-y-auto shadow-2xl">
+            <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-500/40 flex items-center justify-center text-pink-400">
+                        <i class="fa-solid fa-cloud-arrow-up text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-lg text-white">Загрузка своих MP3 и Фото</h3>
+                        <p class="text-xs text-slate-400">Хочешь полные версии треков или другое фото лица артиста? Загрузи их прямо со [...]
+                    </div>
+                </div>
+                <button onclick="closeMp3Manager()" class="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/15 flex items-center justify-center text-slate-300">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div class="mt-4 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 text-xs text-cyan-200 leading-relaxed">
+                <i class="fa-solid fa-circle-info mr-1.5 text-cyan-400"></i>
+                <strong>Как это работает:</strong> Сайт уже автоматически подгружает официальные демо-превью из Apple Music / iTunes [...]
+            </div>
+
+            <div id="mp3-manager-list" class="space-y-3 mt-5">
+                <!-- Список слотов загрузки для всех 5 исполнителей -->
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-white/10 flex justify-end">
+                <button onclick="closeMp3Manager()" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-pink-500 to-purple-600 font-bold text-xs text-white">
+                    Готово, вернуться к сайту
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрытые input для быстрой загрузки с карточек -->
+    <input type="file" id="hidden-audio-input" accept="audio/*" class="hidden">
+    <input type="file" id="hidden-photo-input" accept="image/*" class="hidden">
+
+    <!-- НИЖНИЙ ГЛОБАЛЬНЫЙ АУДИОПЛЕЕР С ЭКВАЛАЙЗЕРОМ -->
+    <div class="fixed bottom-0 inset-x-0 z-40 bg-[#090912]/95 backdrop-blur-2xl border-t border-white/15 shadow-[0_-10px_40px_rgba(0,0,0,0.7)]">
+        <!-- Тонкая линия прогресса сверху плеера -->
+        <div class="w-full h-1 bg-white/10 relative cursor-pointer" onclick="seekFromBar(event)">
+            <div id="top-progress-fill" class="h-full bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-400 w-0 transition-all duration-100"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <!-- Текущий артист и трек -->
+            <div class="flex items-center gap-3.5 w-full sm:w-auto min-w-0">
+                <div id="player-vinyl-wrap" class="relative w-12 h-12 rounded-2xl overflow-hidden border border-white/20 shrink-0 shadow-lg">
+                    <img id="player-cover" src="" alt="Cover" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-black/20 flex items-center justify-center">
+                        <div class="w-3 h-3 rounded-full bg-[#090912] border border-white/40"></div>
+                    </div>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <div class="flex items-center gap-2">
+                        <span class="px-1.5 py-0.5 text-[10px] font-mono font-bold rounded bg-pink-500/20 text-pink-300 border border-pink-500/30 uppercase shrink-0" id="player-badge">ЛЮБИМЫЙ �[...]
+                        <span id="player-source-tag" class="text-[10px] font-mono text-emerald-400 truncate">● iTunes Stream</span>
+                    </div>
+                    <h4 id="player-track-title" class="font-display font-bold text-sm text-white truncate mt-0.5">in my zone</h4>
+                    <p id="player-artist-name" class="text-xs text-slate-400 truncate">bbno$</p>
+                </div>
+                <!-- Кнопка загрузки своего MP3 для текущего трека на мобильных -->
+                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" title="Загрузить свой MP3 для этого трека" class="sm:hidden px-2.5 py-2 rounded-xl bg-white/5 bo[...]
+                    <i class="fa-solid fa-upload"></i>
+                </button>
+            </div>
+
+            <!-- Управление воспроизведением и таймлайн -->
+            <div class="flex flex-col items-center w-full sm:max-w-md">
+                <div class="flex items-center gap-5">
+                    <button onclick="prevTrack()" class="text-slate-400 hover:text-white transition-colors text-base" title="Предыдущий трек">
+                        <i class="fa-solid fa-backward-step"></i>
+                    </button>
+                    <button onclick="togglePlayPause()" id="main-play-btn" class="w-11 h-11 rounded-2xl bg-gradient-to-r from-pink-500 to-purple-600 hover:scale-105 active:scale-95 text-white flex ite[...]
+                        <i id="main-play-icon" class="fa-solid fa-play text-base ml-0.5"></i>
+                    </button>
+                    <button onclick="nextTrack()" class="text-slate-400 hover:text-white transition-colors text-base" title="Следующий трек">
+                        <i class="fa-solid fa-forward-step"></i>
+                    </button>
+                </div>
+                <div class="w-full flex items-center gap-2.5 mt-1.5">
+                    <span id="player-current-time" class="text-[11px] font-mono text-slate-400 w-9 text-right">0:00</span>
+                    <input type="range" id="player-seek" min="0" max="100" value="0" class="w-full" oninput="onSeekInput(this.value)">
+                    <span id="player-duration" class="text-[11px] font-mono text-slate-400 w-9">0:30</span>
+                </div>
+            </div>
+
+            <!-- Живой Canvas-визуализатор и громкость -->
+            <div class="hidden md:flex items-center gap-4 shrink-0">
+                <canvas id="audio-visualizer" width="110" height="36" class="rounded-lg bg-white/5 border border-white/10 px-1.5"></canvas>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-volume-high text-xs text-slate-400"></i>
+                    <input type="range" id="player-volume" min="0" max="1" step="0.02" value="0.85" class="w-20" oninput="changeVolume(this.value)">
+                </div>
+                <button onclick="triggerCustomAudioUpload(currentTrackIndex)" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/15 text-xs font-mono text-cyan-300 flex items[...]
+                    <i class="fa-solid fa-folder-open"></i>
+                    <span>Свой MP3</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомление (Тост) -->
+    <div id="toast-notification" class="fixed top-20 right-4 z-50 transform translate-x-[130%] transition-transform duration-300 glass-card rounded-2xl px-4 py-3 border border-pink-500/40 shadow-2xl f[...]
+        <div class="w-8 h-8 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-sparkles"></i>
+        </div>
+        <p id="toast-text" class="text-xs font-medium text-white"></p>
+    </div>
+
+    <script>
+        /* =========================================================================
+           1. КАСТОМНЫЕ СТИЛИЗОВАННЫЕ ИЛЛЮСТРАЦИИ ЛИЦ ИСПОЛНИТЕЛЕЙ (SVG FALLBACK)
+           Гарантируют, что у каждого артиста ВСЕГДА есть узнаваемое лицо, даже если
+           внешняя фотография ещё грузится или заблокирована сетью!
+           ========================================================================= */
+        function createArtistFaceSVG(artistId) {
+            const svgs = {
+                'bbnos': `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                    <defs>
+                        <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#064e3b"/>
+                            <stop offset="50%" stop-color="#0f766e"/>
+                            <stop offset="100%" stop-color="#be123c"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="400" fill="url(#bg1)"/>
+                    <circle cx="200" cy="200" r="165" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="2" stroke-dasharray="8 8"/>
+                    <!-- Плечи / худи -->
+                    <path d="M75 400 C85 305 135 285 200 285 C265 285 315 305 325 400 Z" fill="#111827"/>
+                    <path d="M150 285 L200 355 L250 285" fill="#10b981"/>
+                    <!-- Шея и голова -->
+                    <rect x="175" y="240" width="50" height="55" rx="15" fill="#f3d2c1"/>
+                    <rect x="135" y="115" width="130" height="150" rx="58" fill="#f7d7c4"/>
+                    <!-- Фирменная шапка-бини bbno$ -->
+                    <path d="M130 155 C130 85 270 85 270 155 Z" fill="#f43f5e"/>
+                    <rect x="124" y="142" width="152" height="28" rx="12" fill="#e11d48"/>
+                    <text x="200" y="160" text-anchor="middle" fill="#ffffff" font-family="monospace" font-weight="bold" font-size="15">bbno$</text>
+                    <!-- Кудрявые пряди из-под шапки -->
+                    <circle cx="132" cy="175" r="14" fill="#3f271d"/>
+                    <circle cx="268" cy="175" r="14" fill="#3f271d"/>
+                    <!-- Стильные очки в тонкой оправе с розовыми линзами -->
+                    <rect x="148" y="172" width="44" height="28" rx="10" fill="rgba(244,63,94,0.35)" stroke="#fbbf24" stroke-width="4"/>
+                    <rect x="208" y="172" width="44" height="28" rx="10" fill="rgba(244,63,94,0.35)" stroke="#fbbf24" stroke-width="4"/>
+                    <line x1="192" y1="185" x2="208" y2="185" stroke="#fbbf24" stroke-width="4"/>
+                    <!-- Глаза -->
+                    <circle cx="170" cy="186" r="4.5" fill="#1f2937"/>
+                    <circle cx="230" cy="186" r="4.5" fill="#1f2937"/>
+                    <!-- Усы и бородка bbno$ -->
+                    <path d="M175 222 Q200 212 225 222" stroke="#3f271d" stroke-width="6" fill="none" stroke-linecap="round"/>
+                    <path d="M184 226 Q200 236 216 226" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M182 246 Q200 264 218 246" stroke="#3f271d" stroke-width="7" fill="none" stroke-linecap="round"/>
+                </svg>`,
+
+                'mzlff': `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                    <defs>
+                        <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#311042"/>
+                            <stop offset="50%" stop-color="#4c1d95"/>
+                            <stop offset="100%" stop-color="#1e1b4b"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="400" fill="url(#bg2)"/>
+                    <circle cx="200" cy="195" r="155" fill="none" stroke="rgba(192,132,252,0.2)" stroke-width="3"/>
+                    <!-- Оверсайз свитшот -->
+                    <path d="M70 400 C85 305 140 285 200 285 C260 285 315 305 330 400 Z" fill="#1e1b4b"/>
+                    <path d="M155 285 Q200 325 245 285" fill="none" stroke="#a855f7" stroke-width="4"/>
+                    <!-- Шея и лицо -->
+                    <rect x="176" y="240" width="48" height="55" rx="14" fill="#fae3d9"/>
+                    <rect x="136" y="118" width="128" height="146" rx="56" fill="#fde8df"/>
+                    <!-- Пышная причёска с чёлкой Илья Мазеллов -->
+                    <path d="M122 178 C115 105 165 82 205 85 C255 85 285 112 278 178 C260 140 230 145 200 155 C165 145 140 150 122 178 Z" fill="#6b4423"/>
+                    <!-- Очки в прозрачной/светлой оправе -->
+                    <rect x="148" y="172" width="45" height="30" rx="8" fill="rgba(168,85,247,0.18)" stroke="#e2e8f0" stroke-width="3.5"/>
+                    <rect x="207" y="172" width="45" height="30" rx="8" fill="rgba(168,85,247,0.18)" stroke="#e2e8f0" stroke-width="3.5"/>
+                    <line x1="193" y1="186" x2="207" y2="186" stroke="#e2e8f0" stroke-width="3.5"/>
+                    <!-- Глаза и задумчивая улыбка -->
+                    <circle cx="170" cy="187" r="4.5" fill="#1e293b"/>
+                    <circle cx="230" cy="187" r="4.5" fill="#1e293b"/>
+                    <path d="M184 228 Q200 236 216 228" stroke="#be8a7b" stroke-width="4" fill="none" stroke-linecap="round"/>
+                </svg>`,
+
+                'cg5': `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                    <defs>
+                        <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#7f1d1d"/>
+                            <stop offset="50%" stop-color="#991b1b"/>
+                            <stop offset="100%" stop-color="#451a03"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="400" fill="url(#bg3)"/>
+                    <!-- Пиджак и рубашка CG5 -->
+                    <path d="M75 400 C85 300 135 282 200 282 C265 282 315 300 325 400 Z" fill="#18181b"/>
+                    <polygon points="175,282 200,365 225,282" fill="#ef4444"/>
+                    <!-- Шея и голова -->
+                    <rect x="176" y="238" width="48" height="55" rx="14" fill="#f8d8c6"/>
+                    <rect x="138" y="118" width="124" height="144" rx="52" fill="#fce1d2"/>
+                    <!-- Стильная укладка Чарли Грина -->
+                    <path d="M132 162 C125 95 185 78 228 88 C268 96 276 132 266 165 C250 132 165 130 132 162 Z" fill="#452719"/>
+                    <!-- Фирменные прямоугольные чёрные очки CG5 -->
+                    <rect x="146" y="170" width="47" height="29" rx="6" fill="rgba(255,255,255,0.12)" stroke="#111827" stroke-width="5"/>
+                    <rect x="207" y="170" width="47" height="29" rx="6" fill="rgba(255,255,255,0.12)" stroke="#111827" stroke-width="5"/>
+                    <line x1="193" y1="183" x2="207" y2="183" stroke="#111827" stroke-width="5"/>
+                    <circle cx="170" cy="184" r="4.5" fill="#111827"/>
+                    <circle cx="230" cy="184" r="4.5" fill="#111827"/>
+                    <!-- Улыбка и студийный микрофон -->
+                    <path d="M182 225 Q200 238 218 225" stroke="#991b1b" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                    <rect x="255" y="235" width="26" height="44" rx="13" fill="#fbbf24" stroke="#111827" stroke-width="3"/>
+                </svg>`,
+
+                'joost': `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                    <defs>
+                        <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#1d4ed8"/>
+                            <stop offset="60%" stop-color="#1e3a8a"/>
+                            <stop offset="100%" stop-color="#eab308"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="400" fill="url(#bg4)"/>
+                    <!-- Звёзды Евросоюза вокруг Joost -->
+                    <circle cx="200" cy="200" r="160" fill="none" stroke="#facc15" stroke-width="3" stroke-dasharray="4 22"/>
+                    <!-- Знаменитый синий костюм с огромными острыми плечами из Europapa -->
+                    <polygon points="35,265 155,285 110,400 25,400" fill="#2563eb" stroke="#60a5fa" stroke-width="3"/>
+                    <polygon points="365,265 245,285 290,400 375,400" fill="#2563eb" stroke="#60a5fa" stroke-width="3"/>
+                    <polygon points="110,285 290,285 310,400 90,400" fill="#1d4ed8"/>
+                    <polygon points="175,285 200,355 225,285" fill="#facc15"/>
+                    <!-- Голова и светлый маллет -->
+                    <rect x="176" y="238" width="48" height="52" rx="12" fill="#fbd8c4"/>
+                    <path d="M124 215 L118 265 L282 265 L276 215 Z" fill="#fde047"/>
+                    <rect x="140" y="118" width="120" height="142" rx="52" fill="#fde2d2"/>
+                    <!-- Светлые волосы Joost Klein -->
+                    <path d="M134 162 C134 100 266 100 266 162 C235 135 165 135 134 162 Z" fill="#fef08a"/>
+                    <!-- Глаза и фирменные светлые ус�� Joost -->
+                    <circle cx="172" cy="182" r="5" fill="#1e293b"/>
+                    <circle cx="228" cy="182" r="5" fill="#1e293b"/>
+                    <path d="M172 218 Q200 208 228 218" stroke="#eab308" stroke-width="7" fill="none" stroke-linecap="round"/>
+                    <path d="M185 228 Q200 236 215 228" stroke="#9a3412" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+                </svg>`,
+
+                'morgenshtern': `
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+                    <defs>
+                        <linearGradient id="bg5" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#831843"/>
+                            <stop offset="50%" stop-color="#4c0519"/>
+                            <stop offset="100%" stop-color="#78350f"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="400" height="400" fill="url(#bg5)"/>
+                    <!-- Кожаная куртка и цепь -->
+                    <path d="M75 400 C85 300 135 282 200 282 C265 282 315 300 325 400 Z" fill="#09090b"/>
+                    <path d="M158 292 Q200 342 242 292" fill="none" stroke="#fbbf24" stroke-width="6" stroke-dasharray="8 4"/>
+                    <!-- Шея и лицо -->
+                    <rect x="175" y="238" width="50" height="55" rx="14" fill="#f3cbb6"/>
+                    <rect x="138" y="116" width="124" height="145" rx="54" fill="#f7d4c0"/>
+                    <!-- Причёска и тату 666 над бровью -->
+                    <path d="M135 158 C135 95 265 95 265 158 C235 128 165 128 135 158 Z" fill="#27272a"/>
+                    <text x="166" y="162" fill="#18181b" font-family="monospace" font-weight="900" font-size="13">666</text>
+                    <!-- Солнцезащитные очки и харизматичная ухмылка -->
+                    <rect x="148" y="170" width="46" height="26" rx="8" fill="#18181b" stroke="#fbbf24" stroke-width="3"/>
+                    <rect x="206" y="170" width="46" height="26" rx="8" fill="#18181b" stroke="#fbbf24" stroke-width="3"/>
+                    <line x1="194" y1="182" x2="206" y2="182" stroke="#fbbf24" stroke-width="3"/>
+                    <path d="M178 224 Q202 238 224 220" stroke="#18181b" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+                </svg>`
+            };
+            return 'data:image/svg+xml;utf8,' + encodeURIComponent(svgs[artistId] || svgs['bbnos']);
+        }
+
+        /* =========================================================================
+           2. БАЗА ДАННЫХ ИСПОЛНИТЕЛЕЙ И ЛЮБИМЫХ ТРЕКОВ (СТРОГО ПО ЗАПРОСУ)
+           Описание посвящено САМИМ ИСПОЛНИТЕЛЯМ, а в блоке любимого трека—
+           указанный пользователем трек!
+           ========================================================================= */
+        const artistsData = [
+            {
+                id: 'bbnos',
+                number: '01',
+                stageName: 'bbno$',
+                realName: 'Alexander Leon Gumuchian (Алекс Гумучян)',
+                country: '🇨🇦 Ванкувер, Канада',
+                vibeTag: 'INTERNET RAP / HOUSE BOUNCE',
+                accentFrom: '#10b981',
+                accentTo: '#f43f5e',
+                badgeClass: 'from-emerald-400 to-rose-500',
+                borderGlow: 'hover:shadow-[0_0_35px_rgba(16,185,129,0.28)]',
+                // Описание САМОГО ИСПОЛНИТЕЛЯ
+                artistBio: 'Канадский рэпер, певец и главный харизматик мирового интернет-хип-хопа. Прославился своим нев[...]
+                styleTags: ['#InternetHipHop', '#HouseRap', '#BabyNoMoney', '#Харизма'],
+                stats: { listeners: '19M+ в месяц', styleDna: 'Грув, Бас и Ирония' },
+                // Блок "Мой любимый трек у исполнителя"
+                favoriteTrack: {
+                    title: 'in my zone',
+                    fullDisplay: 'bbno$ — in my zone',
+                    itunesQuery: 'bbno$ in my zone',
+                    fallbackQuery: 'bbno$',
+                    bpm: 126,
+                    synthStyle: 'house',
+                    audioUrl: null,
+                    isCustomFile: false
+                },
+                wikiPages: [
+                    { lang: 'en', title: 'Bbno$' },
+                    { lang: 'ru', title: 'Bbno$' }
+                ],
+                portraitUrl: null
+            },
+            {
+                id: 'mzlff',
+                number: '02',
+                stageName: 'mzlff',
+                realName: 'Илья Мазеллов',
+                country: '🇷🇺 Москва',
+                vibeTag: 'ALT HIP-HOP / INDIE MELANCHOLY',
+                accentFrom: '#a855f7',
+                accentTo: '#6366f1',
+                badgeClass: 'from-purple-500 to-indigo-500',
+                borderGlow: 'hover:shadow-[0_0_35px_rgba(168,85,247,0.3)]',
+                // Описание САМОГО ИСПОЛНИТЕЛЯ
+                artistBio: 'Яркий и самобытный артист новой волны русскоязычной интернет-сцены. Начав с громких стримов, �[...]
+                styleTags: ['#НоваяВолна', '#КонцептАльбомы', '#Лирика', '#СветлаяПечаль'],
+                stats: { listeners: 'Топ-чарты СНГ', styleDna: 'Искренность и Атмосфера' },
+                // Блок "Мой любимый трек у исполнителя"
+                favoriteTrack: {
+                    title: 'Карусель',
+                    fullDisplay: 'mzlff — Карусель',
+                    itunesQuery: 'mzlff Карусель',
+                    fallbackQuery: 'mzlff',
+                    bpm: 118,
+                    synthStyle: 'melancholy',
+                    audioUrl: null,
+                    isCustomFile: false
+                },
+                wikiPages: [
+                    { lang: 'ru', title: 'Mzlff' }
+                ],
+                portraitUrl: null
+            },
+            {
+                id: 'cg5',
+                number: '03',
+                stageName: 'CG5',
+                realName: 'Charlie Green (Чарли Грин)',
+                country: '🇺🇸 Аризона, США',
+                vibeTag: 'ELECTRO-POP / GAMING SYNTH',
+                accentFrom: '#ef4444',
+                accentTo: '#f59e0b',
+                badgeClass: 'from-red-500 to-amber-500',
+                borderGlow: 'hover:shadow-[0_0_35px_rgba(239,68,68,0.28)]',
+                // Описание САМОГО ИСПОЛНИТЕЛЯ
+                artistBio: 'Американский певец, автор песен и музыкальный продюсер, ставший настоящим королём инди-гейми�[...]
+                styleTags: ['#ElectroPop', '#Synthwave', '#VocalProduction', '#GeekCulture'],
+                stats: { listeners: '8M+ подписчиков', styleDna: 'Мощный Вокал и Синты' },
+                // Блок "Мой любимый трек у исполнителя"
+                favoriteTrack: {
+                    title: 'your verity',
+                    fullDisplay: 'CG5 — your verity',
+                    itunesQuery: 'CG5 verity',
+                    fallbackQuery: 'CG5',
+                    bpm: 132,
+                    synthStyle: 'synthpop',
+                    audioUrl: null,
+                    isCustomFile: false
+                },
+                wikiPages: [
+                    { lang: 'en', title: 'CG5_(musician)' }
+                ],
+                portraitUrl: null
+            },
+            {
+                id: 'joost',
+                number: '04',
+                stageName: 'Joost',
+                realName: 'Joost Klein (Йост Кляйн)',
+                country: '🇳🇱 Леуварден, Нидерланды',
+                vibeTag: 'EURO-RAVE / HAPPY HARDCORE',
+                accentFrom: '#2563eb',
+                accentTo: '#facc15',
+                badgeClass: 'from-blue-600 to-yellow-400',
+                borderGlow: 'hover:shadow-[0_0_35px_rgba(37,99,235,0.35)]',
+                // Описание САМОГО ИСПОЛНИТЕЛЯ
+                artistBio: 'Нидерландский музыкант, рэпер и гений визуального перфоманса, перевернувший европейскую поп-[...]
+                styleTags: ['#GabberPop', '#EuroRave', '#HappyHardcore', '#1983'],
+                stats: { listeners: 'Мировой феномен', styleDna: '160 BPM Рейв и Душа' },
+                // Блок "Мой любимый трек у исполнит");
